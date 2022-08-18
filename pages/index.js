@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { client } from "../libs/cliant";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 export const getStaticProps = async () => {
   const data = await client.get({
     endpoint: "blog",

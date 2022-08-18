@@ -1,4 +1,5 @@
 import { client } from "../../libs/cliant";
+import styles from "../../styles/Home.module.scss";
 
 export const getStaticProps = async (context) => {
   const id = context.params.id;
@@ -22,8 +23,13 @@ export const getStaticPaths = async () => {
 
 export default function BlogId({ blog }) {
   return (
-    <main>
-      <h1>{blog.title}</h1>
+    <main className={styles.main}>
+      <h1 className={styles.title}>{blog.title}</h1>
+      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+      <div
+        dangerouslySetInnerHTML={{ __html: `${blog.body}` }}
+        className={styles.post}
+      />
     </main>
   );
 }
